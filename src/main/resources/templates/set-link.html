@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{page_layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Page</title>
+</head>
+<body>
+<div layout:fragment="main-content">
+    <form class="row g-3" th:action="@{/link}" th:object="${link}" method="post">
+        <div class="form-outline mb-4">
+            <label for="propertyName" class="form-label">Property Name</label>
+            <input type="text" th:field="*{propertyName}" id="propertyName" placeholder="PropertyName" class="form-control">
+            <span th:if="${#fields.hasErrors('propertyName')}" th:errors="*{propertyName}"></span>
+        </div>
+        <div class="form-outline mb-4">
+            <label for="buyerId" class="form-label">Buyer ID</label>
+            <input type="number" th:field="*{buyerId}" id="buyerId" placeholder="buyerId" class="form-control">
+            <span th:if="${#fields.hasErrors('buyerId')}" th:errors="*{buyerId}"></span>
+        </div>
+        <div class="form-outline mb-4">
+            <label for="sellerId" class="form-label">Seller ID</label>
+            <input type="number" th:field="*{sellerId}" id="sellerId" placeholder="sellerId" class="form-control">
+            <span th:if="${#fields.hasErrors('sellerId')}" th:errors="*{sellerId}"></span>
+        </div>
+        <div class="form-outline mb-4">
+            <label for="contractorId" class="form-label">Contractor ID</label>
+            <input type="number" th:field="*{contractorId}" id="contractorId" placeholder="contractorId" class="form-control">
+            <span th:if="${#fields.hasErrors('contractorId')}" th:errors="*{contractorId}"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>
